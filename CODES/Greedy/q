@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+/*
+ * Complete the function below.
+ */
+ void top(vector<int> a,int top)
+ {
+     if(top>-1)
+     cout<<a[top]<<endl;
+     else {
+     cout<<"EMPTY"<<endl;
+     }
+ }
+void superStack(vector <string> operations) {
+    
+    vector<int> a;
+    for(int i=0;i<operations.size();i++)
+    {
+        int t=-1;
+        string op=operations[i];
+        if(op[1]=='u')
+        {
+            t++;
+            a.push_back(op[5]);
+            top(a,t);
+            
+        }
+        else if(op[1]=='o')
+        {
+            t--;
+            a.pop_back();
+            top(a,t);
+        }
+        else 
+        {
+            int n=op[4];
+            int inc=op[6];
+            for(int i=0;i<n;i++)
+            {
+                a[i]+=inc;
+            }
+            top(a,t);
+            
+        }
+        
+        
+        
+    }
+
+}
+int main()

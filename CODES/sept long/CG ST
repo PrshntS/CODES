@@ -1,0 +1,152 @@
+Weiler Atherton line clipping algorithm:
+
+
+
+
+
+
+
+The Sutherland - Hodgman algorithm is used for clipping polygons. It works by extending each line of the convex clip polygon in turn and selecting only vertices from the subject polygon that are on the visible side.
+
+
+The disadvantages of using this algorithm is - 
+
+
+1. It clips to each window boundary one at a time.
+
+
+2. It has a “Random” edge choice
+
+
+3. It has Redundant edge-line cross calculations
+
+
+
+
+
+    Arc Function
+    Bar Function
+    Circle Function
+    Cleardevice Function
+    Closegraph Function 
+    Outtext Function
+    kbhit Function
+
+
+
+Cohen sutherland algorithm: It is a computer graphic algorithm that is used for line clipping. The 9 divisions from the two dimensional space makes effective determination of the areas of interest.
+
+
+Midpoint subdivision algorithm: An alteration of Cyrus beck algorithm that uses the midpoint of the lines to effectively identify the areas of interest.
+
+
+Difference:
+
+
+The midpoint subdivision algorithm does not require any floating point operation to determine the point of intersection.
+
+This reduces the complexity of the algorithm and hence increases the speed of the algorithm.
+
+The accuracy is also higher in midpoint subdivision algorithm when compared to Cohen sutherland algorithm.
+Algorithm of midpoint subdivision Line Clipping:
+Step1: Calculate the position of both endpoints of the line
+
+Step2: Perform OR operation on both of these endpoints
+
+Step3: If the OR operation gives 0000
+
+      then
+
+          Line is guaranteed to be visible
+
+     else
+
+         Perform AND operation on both endpoints.
+
+         If AND ≠ 0000
+
+      then the line is invisible
+
+   else
+
+      AND=6000
+
+      then the line is clipped case.
+
+Step4: For the line to be clipped. Find midpoint
+
+      Xm=(x1+x2)/2
+
+      Ym=(y1+y2)/2
+
+    Xmis midpoint of X coordinate.
+
+         Ymis midpoint of Y coordinate.
+
+Step5: Check each midpoint, whether it nearest to the boundary of a window or not.
+
+Step6: If the line is totally visible or totally rejected not found then repeat step 1 to 5.
+
+Step7: Stop algorithm.
+
+
+
+
+
+Cohen-Sutherland algorithm divides a two-dimensional space into 9 regions and then efficiently determines the lines and portions of lines that are inside the given rectangular area.
+
+
+Region Codes:
+
+
+These are 4 bit instruction codes used to tell the exact position of point.
+
+
+The general arrangements of these points is:-
+
+
+A - Above
+
+
+B - Below
+
+
+R - Right
+
+
+L - Left
+
+Working rule of Cohen Sutherland:-
+
+
+Calculate region codes for both the ends of line.
+
+If both the region codes corresponds to 0000 then line is completely visible.
+
+Else we take the and of both the values
+
+If and operation resulted in 0000 then the line needs clipping.
+
+Else if and operation not resulted in 0000 then lines are completely invisible.
+
+
+
+If we get Clipping case:
+
+
+Formula's for clipping
+
+
+For X-clipping
+
+
+x = x1 + (1 / slope) * (y - y1)
+
+
+For Y-clipping
+
+
+y = y1 + slope * (x - x1)
+
+
+
